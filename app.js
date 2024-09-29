@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Blog = require('./models/blog');
 
-// express app
+// express ap
 const app = express();
 
 // connect to mongodb 

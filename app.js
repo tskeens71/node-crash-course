@@ -38,10 +38,10 @@ app.get('/add-blog', (req, res) => {
 
 app.get('/all-blogs', (req, res) => {
   Blog.find()
-    .then(result => {
+    .then((result) => {
       res.send(result);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 });

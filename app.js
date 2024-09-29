@@ -8,7 +8,6 @@ const app = express();
 
 // connect to mongodb & listen for requests
 const dbURI = "mongodb+srv://Tskeens71:<dante1971>@nodetuts.cy1t0.mongodb.net/?retryWrites=true&w=majority&appName=nodetuts";
-
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(result => app.listen(3000))
   .catch(err => console.log(err));
@@ -19,12 +18,8 @@ app.set('view engine', 'ejs');
 // middleware & static files
 app.use(express.static('public'));
 app.use(morgan('dev'));
-app.use((req, res, next) => {
-  res.locals.path = req.path;
-  next();
-});
 
-// mongoose & mongo tests
+// mongoose & mongo sandbox routes
 app.get('/add-blog', (req, res) => {
   const blog = new Blog({
     title: 'new blog',
@@ -33,10 +28,10 @@ app.get('/add-blog', (req, res) => {
   })
 
   blog.save()
-    .then(result => {
-      res.send(result);
+    .then((result) => {
+      res.send(result)
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 });

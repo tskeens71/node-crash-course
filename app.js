@@ -15,7 +15,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 // register view engine
 app.set('view engine', 'ejs');
 
-// middleware & static files
+// middleware & static file
 app.use(express.static('public'));
 app.use(morgan('dev'));
 
